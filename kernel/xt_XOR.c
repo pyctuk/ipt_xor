@@ -19,9 +19,8 @@ MODULE_ALIAS("ipt_XOR");
 
 static inline void transform_k(char *buffer, uint32_t len, unsigned char key)
 {
-    unsigned i;
-    for (i = 0;i < len;i++) {
-        buffer[i] ^= key;
+    if (len > 1) {
+        buffer[0] ^= key;
     }
 }
 
